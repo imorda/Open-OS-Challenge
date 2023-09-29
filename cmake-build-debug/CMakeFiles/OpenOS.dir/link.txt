@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/OpenOS.dir/9/test.cpp.o -o OpenOS 

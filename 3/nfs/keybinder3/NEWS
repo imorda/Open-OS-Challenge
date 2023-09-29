@@ -1,0 +1,153 @@
+
+keybinder-3.0 v0.3.2
+--------------------
+
+* Fix ``keybinder_bind`` and others to not crash on non-X11 displays.
+  It simply returns FALSE, failing to bind the key.
+* Add new API:
+
+  ``gboolean keybinder_supported()``
+    Return TRUE if on key bindings are implemented for this
+    configuration. (Right now: only TRUE if gtk says there's an X11
+    display)
+
+* Fix deprecated directives in build system
+
+keybinder-3.0 v0.3.1
+--------------------
+
+* Use ``XkbFreeKeyboard`` to fix memory leak
+  (by Dmitry Eremin-Solenikov)
+* Fix deprecated directives in build system
+  (by Dmitry Eremin-Solenikov)
+
+
+keybinder and keybinder-3.0  v0.3.0
+-----------------------------------
+
+Released Sunday, 17 June 2012
+
+* Patch Makefile.am to use ACLOCAL_AMFLAGS=-I m4 (by Luca Falavigna)
+* Add two functions to fix gobject-introspection (gir) bindings:
+
+  ``keybinder_bind_full(keystring, callback, user_data, notify)``
+      Uses GDestroyNotify for notification of callback
+      unregistration. This function is compatible with introspected
+      bindings unlike ``keybinder_bind``.
+      Exported as ``keybinder_bind`` (``bind``) to bindings.
+
+  ``keybinder_unbind_all(keystring)``
+      unregister all callbacks for the specified keystring.
+      ``keybinder_unbind``'s signature cannot be supported by
+      introspection bindings, and unbinding all matches the common use
+      case (especially from bindings).
+      Exported as ``keybinder_unbind`` (``unbind``) to bindings.
+
+* Build a gobject-introspection ``.typelib`` file for libkeybinder
+* Add a reference manual for libkeybinder using gtk-doc
+* Branch the library into two simultaneously installable libraries
+
+  + ``keybinder`` is like the old version, using Gtk+ 2, package name
+    ``keybinder`` (pkgconfig) and ``Keybinder-0.0`` (gir)
+  + ``keybinder-3.0`` is a new version, using Gtk+ 3, package name
+    ``keybinder-3.0`` (pkgconfig) and ``Keybinder-3.0`` (gir)
+
+  + ``keybinder-3.0`` removes ``python-keybinder`` because pygtk will
+    never be compatible with Gtk+ 3. Instead gir bindings have to be
+    used.
+
+  + These libraries will possibly have separate releases in the future
+    but their first release is simultaneous, it is now.
+
+  + ``keybinder-3.0`` is distributed under X11 license, since the GPL
+    parts have been removed (python-keybinder and ax_lua).
+    The old branch ``keybinder`` is still GPL!
+ 
+
+keybinder v0.2.2
+----------------
+
+Released Sunday, 20 May 2010
+
+* Add pkg-config file contributed by Jérôme Guelfucci
+* Add Vala example and .vapi file to examples/
+* Make lua-keybinder installable (this is experimental), using ax_lua.m4
+
+keybinder v0.2.1
+----------------
+
+Released Monday, 26 April 2010
+
+* Release key grabs if binding fails partially.
+
+keybinder v0.2.0
+----------------
+
+Released Saturday, 24 April 2010
+
+* Split into libkeybinder library and python-keybinder so that the same
+  module can be used from Python or C. The Python bindings are now optional.
+
+* Add examples/ directory with C, Python and Lua examples (including
+  experimental Lua bindings).
+
+keybinder v0.1.1
+----------------
+
+Released Wednesday, 21 April 2010
+
+* Workaround GTK+ Bug 616401
+  https://bugzilla.gnome.org/show_bug.cgi?id=616401
+
+* Don't bind anything when mapping virtual modifiers fail
+  (Kupfer bug :lp:`566945`)
+
+keybinder v0.1.0
+----------------
+
+Released Tuesday,  6 April 2010
+
+* Depend on GTK+ 2.20
+
+* Remove egg* code
+
+
+keybinder v0.0.9
+----------------
+
+Released Tuesday,  6 April 2010
+
+* Replace some egg* code with GTK+ functionality.
+
+* Take great pains to understand "Consumed Modifiers", as in:
+
+  + When pressing *Ctrl+Shift+1* to make *Ctrl+!*, Shift is a consumed
+    modifier. So when receiving a binding specification like
+    ``<Ctrl>exclam``, we have to dig deep into XKB to find out which
+    hardware modifiers are needed to create the bang (!) character.
+    With this, it is now possible to bind any composed character.
+
+
+* Keybindings now work in alternative layouts as well, you just have to
+  press the same hardware keys as in the primary layout.  For example a
+  keybinding *Ctrl+W*  will still be available on the same physical
+  keys after switching to a secondary Greek layout.
+
+* Remove keybinder.is_modifier from the module
+
+* Use -Wall
+
+
+keybinder v0.0.4
+----------------
+
+Released 22 November 2009
+
+* Remove bogus dependencies from configure checks (gnome-doc-utils and
+  gnomeapplet)
+* Enable ``AM_SILENT_RULES``
+* Fix language errors in documentation
+
+
+.. -*- encoding: UTF-8 -*-
+.. vim: ft=rst tw=72

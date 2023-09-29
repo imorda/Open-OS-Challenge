@@ -1,0 +1,7 @@
+wget http://repo.openscaler.ru/openScaler-22.03-LTS-SP2/source/Packages/sssd-2.6.1-9.os2203sp2.src.rpm
+sudo dnf install mock rpmdevtools rpm-build
+sudo usermod -a -G mock contestuser
+cp /etc/mock/site-defaults.cfg ./mock-config-x86_64.cfg
+mock -r mock-config-x86_64.cfg sssd-2.6.1-9.os2203sp2.src.rpm
+mkdir artifacts
+cp /var/lib/mock/openScaler-LTS-x86_64-1/result/*.rpm ./artifacts/

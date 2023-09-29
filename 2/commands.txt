@@ -1,0 +1,10 @@
+sudo dnf group install "Development Tools"
+git clone https://github.com/linux-test-project/ltp.git
+cd ltp
+make autotools
+./configure
+make
+sudo make install
+cd /opt/ltp
+sudo ./runltp -f controllers -g /home/contestuser/2/result.html -l /home/contestuser/2/result.log -p
+sudo chown $USER:$USER result*

@@ -1,0 +1,4 @@
+dnf install nginx
+dnf repoquery -l --installed nginx > nginx_files.list
+file -f nginx_files.list | grep ELF
+stat -c '%s' /usr/sbin/nginx > ans.txt

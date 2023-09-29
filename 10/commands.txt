@@ -1,0 +1,3 @@
+sudo dd if=/dev/sdb of=~/10/img
+sudo chown contestuser:contestuser img
+python3 solution.py

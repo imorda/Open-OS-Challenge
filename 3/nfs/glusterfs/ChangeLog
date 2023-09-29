@@ -1,0 +1,53 @@
+===== git log ====
+commit 3fadf5cc41d5ea3195d2228d23e890f27fc22f87
+Author: ShyamsundarR <srangana@redhat.com>
+Date:   Tue Mar 19 10:17:17 2019 -0400
+
+    doc: Final version of release-6 release notes
+    
+    Fixes: bz#1672818
+    Change-Id: I6a98985a7f25bc2b85af5bd85f4be3ffac7d619d
+    Signed-off-by: ShyamsundarR <srangana@redhat.com>
+
+commit 7e90a3b592018f4e0d270d7102cf83aa3eb242d2
+Author: Kotresh HR <khiremat@redhat.com>
+Date:   Tue Mar 19 12:45:36 2019 +0530
+
+    release-notes/6.0: Add ctime feature changes in release notes
+    
+    Change-Id: I3a305b9eb292a450c83de5628ceeadcb0a44afc7
+    updates: bz#1672818
+    Signed-off-by: Kotresh HR <khiremat@redhat.com>
+    Signed-off-by: ShyamsundarR <srangana@redhat.com>
+
+commit 1398fa80455b3b825807ec508c45033ccfffdf7a
+Author: Amar Tumballi <amarts@redhat.com>
+Date:   Mon Mar 18 15:57:03 2019 +0530
+
+    release-notes: add status of gd2 and a highlights section
+    
+    Change-Id: Idd4fd07b3fcdd7810c242eff0dcca9072048a43e
+    fixes: bz#1672818
+    Signed-off-by: Amar Tumballi <amarts@redhat.com>
+    Signed-off-by: ShyamsundarR <srangana@redhat.com>
+
+commit c7a582818db71d50548a2cfce72ce9402ef5599a
+Author: Mohit Agrawal <moagrawal@redhat.com>
+Date:   Tue Mar 12 13:27:34 2019 +0530
+
+    glusterfsd: Brick is getting crash at the time of startup
+    
+    Problem: Brick is getting crash because graph was not activated
+             at the time of accessing server_conf
+    
+    Solution: To avoid the crash check ctx->active before processing
+              a request
+    
+    > Change-Id: Ib112e0eace19189e45f430abdac5511c026bed47
+    > fixes: bz#1687705
+    >(cherry picked from commit 67f48bfcc16a38052e6c9ae7c25e69b03b8ae008)
+    > (Reviewed on upstream link https://review.gluster.org/#/c/glusterfs/+/22339/)
+    
+
+More commit messages for this ChangeLog can be found at
+https://forge.gluster.org/glusterfs-core/glusterfs/commits/v6.0

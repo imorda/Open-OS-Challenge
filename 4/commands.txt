@@ -1,0 +1,3 @@
+sudo cp /root/file.txt .
+sudo chown $USER:$USER file.txt
+

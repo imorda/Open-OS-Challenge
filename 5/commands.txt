@@ -1,0 +1,2 @@
+sudo cp /root/numbers.txt .
+sudo chown $USER:$USER numbers.txt

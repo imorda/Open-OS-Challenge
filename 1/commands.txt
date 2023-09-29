@@ -1,0 +1,5 @@
+sudo cp /root/checker .
+sudo chown $USER:$USER checker
+./checker
+touch test1
+./checker
